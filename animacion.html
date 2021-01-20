@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>Strassen</title>
+<meta charset="utf-8" />
+<meta name="description" content="Debe contener las palabras clave, tratar de atraer clicks y de longitud entre 150 y 160 caracteres">
+<link rel="stylesheet" href="css/style.css"/>
+<link rel="stylesheet" href="js/main.js">
+</head>
+ 
+<body id="fondoGeneral">
+    <header class="centrarT">
+       <h1>Multiplicacion de Matrices de Strassen</h1>
+       <p>Animacion del proceso</p>
+       <nav class="menu">
+            <ul>
+                <li><a class="active" href="./index.html">Home</a></li>
+                <li><a href="./animacion.html">Animacion</a></li>
+                <li><a href="./cfuente.html">Codigo fuente</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id= "introIndex">
+            <h2 class="centrarT">Animacion</h2>
+            <p>Revisar:
+                <a href="https://github.com/AnthonyPierrat/strassen-algorithm">Este proyecto</a>
+            </p>
+            <div class="animacion1">
+                <p>Animacion de dividir matriz</p>
+                <div align=center>
+                    <table class="matrix X">
+                        <tr>
+                            <td>A</td>
+                            <td>B</td>
+                        </tr>
+                        <tr>
+                            <td>C</td>
+                            <td>D</td>
+                        </tr>
+                    </table>
+                 <table class="matrix X">
+                        <tr>
+                            <td>E</td>
+                            <td>F</td>
+                        </tr>
+                        <tr>
+                            <td>G</td>
+                            <td>H</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="animacion2">
+                <form name="matrizN">
+                    <p>animacion desarrollo</p>
+                    <p>Tamaño Matriz: <input type="text" size="3" name="tamMatriz" id="tamMatriz"></p>
+                    <input type="button" value="Generar" onClick="obtenerDatos()">
+                </form>
+
+                <div align=center>
+                    <table class="matrix X">
+                        <tr>
+                            <td>A=<input type="text" size="3" ></td>
+                            
+                            <td>B=<input type="text" size="3" ></td>
+                        </tr>
+                        <tr>
+                            <td>C=<input type="text" size="3" ></td>
+                            <td>D=<input type="text" size="3" ></td>
+                        </tr>
+                    </table>
+                 <table class="matrix X">
+                        <tr>
+                            <td>E=<input type="text" size="3" ></td>
+                            <td>F=<input type="text" size="3" ></td>
+                        </tr>
+                        <tr>
+                            <td>G=<input type="text" size="3" ></td>
+                            <td>H=<input type="text" size="3" ></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer id="footerFondo">
+        <h3>Miembros:</h3>
+        <p>Paredes Sánchez Giovanni Damián</p>
+        <p>Perez Gonzalez Mayer Abraham</p>
+        <p>Ortiz Salazar Manuel Eduardo</p>
+    </footer>
+</body>
+</html>

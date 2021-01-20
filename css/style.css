@@ -1,0 +1,101 @@
+/*==GENERAL==*/
+#fondoGeneral {
+    background-image: url(https://fondosmil.com/fondo/24264.jpg);
+}
+#footerFondo {
+    padding-top: 1px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    background-color: darkslategray;
+    color: lightskyblue;
+}
+
+.menu {
+    padding-left: 200px;
+    width: 600px;
+    height: 40px;
+    margin: auto;
+}
+.menu a:hover {
+    background-color: rgb(112, 87, 87);
+    color: limegreen;
+  }
+
+.menu ul li{
+    list-style: none;
+    float: left;
+}
+.menu ul li a {
+    color: mediumaquamarine;
+    text-decoration: none;
+    padding: 10px 15px;
+    border: 1px solid mediumaquamarine;
+}
+h1 {
+    color:lightblue;
+    text-align: center;
+    padding: 5px;
+}
+.centrarT {
+    text-align: center;
+}
+
+/*==INDEX==*/
+#introIndex {
+    padding-left: 20px;
+    background-color: cadetblue;
+    margin: auto;
+}
+img.strImg{
+    max-width: 200px; 
+    max-height: 200px;
+    margin: auto;
+    
+}
+.botones ul li{
+    list-style: none;
+    float: left;
+    
+}
+.botones ul li a {
+    text-decoration: none;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    background-color: lime;
+}
+/*==ANIMACION==*/
+.animacion2 {
+    margin-right: 20px;
+    margin-bottom: 5px;
+    border: 1px solid steelblue;
+}
+/*==cfuente==*/
+.cFuente img{
+    padding-left: 30px;
+    margin-left: auto;
+}
+.matrix {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.matrix:before, .matrix:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    border: 1px solid #000;
+    width: 10%;
+    height: 100%;
+}
+.matrix:before {
+    left: -6px;
+    border-right: 0px;
+}
+.matrix:after {
+    right: -6px;
+    border-left: 0px;
+}
+.matrix td {
+    padding: 5px;   
+    text-align: center;
+}
