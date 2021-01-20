@@ -5,8 +5,10 @@
 <meta charset="utf-8" />
 <meta name="description" content="Debe contener las palabras clave, tratar de atraer clicks y de longitud entre 150 y 160 caracteres">
 <link rel="stylesheet" href="css/style.css"/>
+<link rel="stylesheet" href="prueba_files/css">
 <script src="./js/main.js"></script>
 <script src="./js/animar2.js"></script>
+<script src="./js/matriz_dinamica.js"></script>
 </head>
  
 <body id="fondoGeneral">
@@ -82,6 +84,21 @@
                         </tr>
                     </table>
                 </form>
+                </div>
+                    <h1>Dimensiones Matriz 1</h1>
+                    fila : <input type="number" min="1" id="fil1" value="2"> columna : <input min="1"  type="number" id="colus1" value="2">
+                    <h1>Dimensiones Matriz 2</h1>
+                    fila : <input type="number" min="1" id="fil2" value="2"> columna : <input min="1"  type="number" id="colus2" value="2">
+                    <p  ><button id="creacion" onclick="crear();" >crear matrices</button><br></p>
+                    <h2>Matriz 1</h2>
+                    <form id="m1" name="matriz1">
+                    </form>
+                    <h2>Matriz 2</h2>
+                    <form id="m2" name="matriz2">
+                    </form>
+                    <div name="bot" id="bot" ></div>
+                    <form id="resultado_enlinea" name="resultado_enlinea" ></form>
+                    <form id="resultado" name="resultado" ></form>
                 </div>
             </div>
         </section>
