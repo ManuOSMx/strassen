@@ -330,6 +330,3 @@ for(var i =0 ; i<tam;i++){
     console.log(C.get(i,j));
   }
 }
-module.exports = {
-  "Matrix.new" : Matrix.new 
-}
