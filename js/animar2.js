@@ -288,7 +288,7 @@ var Matrix = {};
 })();
 //inicia llamadas de funciones
 
-var tam = 32; //tamaño de las matrices
+var tam = 2; //tamaño de las matrices
 
 var A = Matrix.new(tam,tam,"A");
 var B = Matrix.new(tam,tam,"B");
@@ -298,7 +298,7 @@ console.log("Matriz A");
 //ingresa datos a matriz A
 for(var i =0 ; i<tam;i++){
   for(var j =0 ; j<tam;j++){
-    A.set(i,j,cont);
+    A.set(i,j,cont); 
     cont++;
   }
 }
@@ -329,4 +329,7 @@ for(var i =0 ; i<tam;i++){
   for(var j =0 ; j<tam;j++){
     console.log(C.get(i,j));
   }
+}
+module.exports = {
+  "Matrix.new" : Matrix.new 
 }
