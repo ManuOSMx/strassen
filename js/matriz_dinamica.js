@@ -212,17 +212,19 @@ var Matrix = {};
     return grownMat;
   };
 
-
-  var strassen = function(a, b, c, leafSize) {
-
-    if (a.n <= leafSize) {
-      mul(a, b, c);
-      return;
-    }
-
+var cont = 0;
+var strassen = function(a, b) {
+  var n = a.n;
+  
+  var C = Matrix.new(n,n,"C"+cont);
+  //console.log(n);
+  cont++;
+  if(n == 1){
+    C.set(0,0,Scalar.mulFunc(a.get(0,0),b.get(0,0)));
+  }
+  else{
     var A = growNextPowerOf2(a);
     var B = growNextPowerOf2(b);
-
     var n = A.n;
 
     var A11 = A.partition(0,   0,   n/2, n/2, "A11");
@@ -235,21 +237,13 @@ var Matrix = {};
     var B21 = B.partition(n/2, 0,   n,   n/2, "B21");
     var B22 = B.partition(n/2, n/2, n,   n,   "B22");
 
-    var M1 = Matrix.new(n, n, "M1");
-    var M2 = Matrix.new(n, n, "M2");
-    var M3 = Matrix.new(n, n, "M3");
-    var M4 = Matrix.new(n, n, "M4");
-    var M5 = Matrix.new(n, n, "M5");
-    var M6 = Matrix.new(n, n, "M6");
-    var M7 = Matrix.new(n, n, "M7");
-
-    strassen(A11.add(A22), B11.add(B22), M1, leafSize);
-    strassen(A21.add(A22), B11         , M2, leafSize);
-    strassen(A11         , B12.sub(B22), M3, leafSize);
-    strassen(A22         , B21.sub(B11), M4, leafSize);
-    strassen(A11.add(A12), B22         , M5, leafSize);
-    strassen(A21.sub(A11), B11.add(B12), M6, leafSize);
-    strassen(A12.sub(A22), B21.add(B22), M7, leafSize);
+    var M1 = strassen(A11.add(A22), B11.add(B22));
+    var M2 = strassen(A21.add(A22), B11         );
+    var M3 = strassen(A11         , B12.sub(B22));
+    var M4 = strassen(A22         , B21.sub(B11));
+    var M5 = strassen(A11.add(A12), B22         );
+    var M6 = strassen(A21.sub(A11), B11.add(B12));
+    var M7 = strassen(A12.sub(A22), B21.add(B22));
 
     var C11 = M1.add(M4).sub(M5).add(M7);
     var C12 = M3.add(M5);
@@ -257,23 +251,29 @@ var Matrix = {};
     var C22 = M1.add(M3).sub(M2).add(M6);
 
     var halfN = C11.n;
-    for (var i = 0; i < c.n; i++) {
-      for (var j = 0; j < c.n; j++) {
+    for (var i = 0; i < C.n; i++) {
+      for (var j = 0; j < C.n; j++) {
         if (i < halfN && j < halfN) {
-          c.set(i, j, C11.get(i, j));
+          C.set(i, j, C11.get(i, j));
         }
         else if (i < halfN && j >= halfN) {
-          c.set(i, j, C12.get(i, j - halfN));
+          C.set(i, j, C12.get(i, j - halfN));
         }
         else if (i >= halfN && j < halfN) {
-          c.set(i, j, C21.get(i - halfN, j));
+          C.set(i, j, C21.get(i - halfN, j));
         }
         else if (i >= halfN && j >= halfN) {
-          c.set(i, j, C22.get(i - halfN, j - halfN));
+          C.set(i, j, C22.get(i - halfN, j - halfN));
         }
       }
     }
-  };
+  }
+
+  return C;
+
+  
+};
+
 
   Matrix.strassenMatrixMul = function (a, b, leafSize) {
     if (a.n !== b.n || a.m !== b.m) {
@@ -282,8 +282,10 @@ var Matrix = {};
     if (a.n !== a.m) {
       throw "incompatible matrices, not square matrices";
     }
-    var c = Matrix.new(a.n, b.m, "C");
-    strassen(a, b, c, leafSize);
+    //var c = Matrix.new(a.n, b.m, "C");
+    //strassen(a, b, c, leafSize);
+    var c = strassen(a,b);
+    console.log("contador:"+cont);
     return c;
   };
 })();
@@ -394,7 +396,7 @@ var Matrix = {};
     }
 
     //Se calcula A*B con algoritmo de Strassen
-    C = Matrix.strassenMatrixMul(A,B,filas_M1);
+    C = Matrix.strassenMatrixMul(A,B,2);
 
     //Se muestra C en la pagina
     for(var i=0;i<filas_M1;i++){
@@ -403,7 +405,6 @@ var Matrix = {};
       for(var q=0;q<colucnas_M2;q++){
         var caja3 = document.createElement("INPUT");
         caja3.setAttribute("size","2");
-        //caja3.setAttribute("value",Matriz_result[i][q]);
         caja3.setAttribute("value",C.get(i,q));
         document.getElementById("resultado").appendChild(caja3);
         conta++;
