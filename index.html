@@ -24,17 +24,43 @@
             <h2 class="centrarT">Introduccion</h2>
             <p> El algoritmo de Strassen, llamado así por Volker Strassen, es un algoritmo usado para la multiplicación de matrices. Es asintóticamente más rápido que el algoritmo de multiplicación de matrices estándar, pero más lento que el algoritmo más rápido conocido, y es útil en la práctica para matrices grandes.</p>
             <p>Pese a que su algoritmo es sólo ligeramente más rápido que el algoritmo estándar para la multiplicación de matrices, fue el primero en señalar que el enfoque estándar no es óptimo.</p>
-            <div class="strassenFoto">
+            <div align="center">
                     <img src="img/Strassen.jpg" alt="Volker Strassen" class="strImg">
                     <p>Volker Strassen</p>
+            </div>
+
+            <h2 class="centrarT">Algoritmo</h2>
+
+            <div align="center">
+                <img src="img/algo1.JPG" alt="algo1" class="algoImg">
+                
+            </div>
+            <div align="center">
+                <img src="img/algo2.JPG" alt="algo2" class="algoImg">
+            
+             </div>
+
+            
+            <div>
+                <h2 class="centrarT">Complejidad</h2>
+                <p>A continuación, vamos a analizar el algoritmo de Strassen para averiguar exactamente en qué medida mejora al algoritmo tradicional y al primer algoritmo recursivo. Comenzando con la recurrencia, sabemos que, para cada problema, debemos llevar a cabo siete productos. Es decir, que de cada problema, van a surgir siempre ocho subproblemas. El tiempo necesario para "generar" estos subproblemas, es decir, para dividir las matrices, lo consideraremos constante (Θ(1)).
+                Nos queda saber el tiempo necesario para fusionar las soluciones parciales (submatrices) para generar una solución mayor. Si consultamos el pseudocódigo, veremos cómo el procedimiento fusionar es fundamental en este algoritmo, como ya lo era en el primer algoritmo recursivo. Puesto que el procedimiento aquí es exactamente el mismo que entonces, su complejidad sigue siendo proporcional al número de entradas de la matriz, es decir, (Θ(n2n2)).
+                Sabiendo todo esto, y que los casos base tratan simplemente de multiplicar, sumar y restar números, y no matrices, podemos formar la fórmula de recurrencia del algoritmo de Strassen:
+                </p>
+                <ul style="color: azure;">
+                    <li>Número de subproblemas por cada problema: a = 7.</li>
+                    <li>Tamaño de cada subproblema: b = n/2.</li>
+                    <li>Tiempo invertido en dividir las matrices: D(n) = Θ(1). Esto es despreciable frente a C(n).</li>
+                    <li>Tiempo invertido en fusionar las submatrices: C(n) = Θ(n^2).</li>
+                </ul>
+                <img src="./img/complejidad.JPG" alt="">
             </div>
             <div class="botones">
                 <ul>
                     <li><a href="./animacion.html">Animacion</a></li>
                 </ul>
             </div>
-        </section>
-
+        </section >
         <aside>
             <p>.</p>
         </aside>
