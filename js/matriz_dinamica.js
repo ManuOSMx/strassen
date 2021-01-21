@@ -1,3 +1,6 @@
+  //importacion de las funciones de Strassen
+  const imp =  require("./strassen");
+
   //valores rescatados de los inputs iniciales
   var filas_M1=parseInt(document.getElementById("fil1").value);
   var colucnas_M1=parseInt(document.getElementById("colus1").value);
@@ -70,13 +73,22 @@
       }
     }
   }
-
+  /*----------------------------------
+  En la siguiente funcion se hara la multiplicacion por strassen
+  ------------------------------*/
   function calc(){
+    
     //sacamos los valores
     var filas_M1=parseInt(document.getElementById("fil1").value);
     var colucnas_M1=parseInt(document.getElementById("colus1").value);
     var filas_M2=parseInt(document.getElementById("fil2").value);
     var colucnas_M2=parseInt(document.getElementById("colus2").value);
+    //-------------------------------------------------------------------
+    //Creacion de las matrices
+    var A = imp.Matriz.new(filas_M1,colucnas_M1,"A"); 
+    var B = imp.Matriz.new(filas_M2,colucnas_M2,"B");
+    var C;
+    //-------------------------------------------------------------------
     //sacamos valores
     var contador_filas=0;
     var contador_cols=0;
@@ -112,6 +124,7 @@
       for(var j= 0;j<colucnas_M1;j++){//se obtienen datos AQUI usar funciones strassen
         var n1=parseInt(document.matriz1.elements[cosos_de_matrizar1].value);
         matrizar1[k][j]=n1;
+        //A.set(k,j,n1);//<-----------------------Valores a matriz A
         cosos_de_matrizar1++;
       }
     }
@@ -136,6 +149,7 @@
       for(var j= 0;j<colucnas_M2;j++){
         var n2=parseInt(document.matriz2.elements[cosos_de_matrizar2].value);
         matrizar2[k][j]=n2;
+        //A.set(k,j,n2);//<-----------------------Valores a matriz B
         cosos_de_matrizar2++;
       }
     }
@@ -147,7 +161,7 @@
       } */
 
     //fin matriz 2 matrizar
-
+    //------------------------PARTES INNECESARIAS----------------------
     //pricipio del calculo matriz resultado
     var Matriz_result = new Array(2);
     var cosos_de_resultado=0;
@@ -180,9 +194,9 @@
     }
 
 
-
+    //-----------------TERMINA CODIGO INNECESARIO------------------------
     //final de calculo matriz resultado
-
+    C = imp.MatrizstrassenMatrixMul(A,B,filas_M1);
 
     //var n2=parseInt(document.matriz2.elements[0].value);
     //  var n1=parseInt(document.matriz1.elements[0].value); pruebas
@@ -195,8 +209,7 @@
         var caja3 = document.createElement("INPUT");
         caja3.setAttribute("size","2");
         caja3.setAttribute("value",Matriz_result[i][q]);
-        //caja.setAttribute("type","number");
-        //document.body.appendChild(caja);
+        //caja3.setAttribute("value",C.get(i,q));
         document.getElementById("resultado").appendChild(caja3);
         conta++;
       }
