@@ -1,13 +1,13 @@
 /*==GENERAL==*/
 #fondoGeneral {
-    background-image: url(https://fondosmil.com/fondo/24264.jpg);
+    background-color: rgb(0, 27, 72);
 }
 #footerFondo {
     padding-top: 1px;
     padding-bottom: 10px;
     padding-left: 20px;
-    background-color: darkslategray;
-    color: lightskyblue;
+    background-color: rgb(2, 69, 122);
+    color: rgb(151, 202, 216);
 }
 
 .menu {
@@ -15,10 +15,11 @@
     width: 600px;
     height: 40px;
     margin: auto;
+    font-family: Quicksand; 
 }
 .menu a:hover {
-    background-color: rgb(112, 87, 87);
-    color: limegreen;
+    background-color: rgb(1, 186, 190);
+    color: rgb(2, 69, 122);
   }
 
 .menu ul li{
@@ -26,15 +27,21 @@
     float: left;
 }
 .menu ul li a {
-    color: mediumaquamarine;
+    color: rgb(1, 186, 190);
     text-decoration: none;
     padding: 10px 15px;
-    border: 1px solid mediumaquamarine;
+    border: 1px solid rgb(1, 138, 190);
 }
 h1 {
-    color:lightblue;
+    color:rgb(151, 202, 216);
     text-align: center;
     padding: 5px;
+    font-family: Quicksand; 
+}
+p{
+    color:rgb(151, 202, 216);
+    text-align: center;
+    font-family: Quicksand; 
 }
 .centrarT {
     text-align: center;
@@ -43,8 +50,9 @@ h1 {
 /*==INDEX==*/
 #introIndex {
     padding-left: 20px;
-    background-color: cadetblue;
+    background-color: rgb(2, 69, 122);
     margin: auto;
+    font-family: Quicksand; 
 }
 img.strImg{
     max-width: 200px; 
@@ -61,13 +69,13 @@ img.strImg{
     text-decoration: none;
     padding: 10px 15px;
     border: 1px solid #ccc;
-    background-color: lime;
+    background-color: rgb(214, 232, 238);
 }
 /*==ANIMACION==*/
 .animacion2 {
     margin-right: 20px;
     margin-bottom: 5px;
-    border: 1px solid steelblue;
+    border: 1px solid rgb(2, 69, 122);
 }
 /*==cfuente==*/
 .cFuente img{
@@ -98,4 +106,7 @@ img.strImg{
 .matrix td {
     padding: 5px;   
     text-align: center;
+}
+.genMat{
+    border: 1px solid #000;
 }
