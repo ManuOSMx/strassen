@@ -57,3 +57,19 @@ for(var i =0 ; i<tama;i++){
     console.log(C.get(i,j));
   }
 }*/
+var btn = document.getElementById('prueba'),
+    caja = document.getElementById('caja'),
+    contador = 0;
+
+    function empezarAnimacion() {
+      if(contador == 0){
+        caja.classList.add('animar');
+        contador = 1;
+      }
+      else {
+        caja.classList.remove('animar');
+        contador = 0;
+      }
+    }
+
+    btn.addEventListener('click',empezarAnimacion,true);

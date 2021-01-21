@@ -5,7 +5,7 @@
 <meta charset="utf-8" />
 <meta name="description" content="Debe contener las palabras clave, tratar de atraer clicks y de longitud entre 150 y 160 caracteres">
 <link rel="stylesheet" href="css/style.css"/>
-<script src="./js/main.js" ></script>
+
 <script src="./js/strassen.js"></script>
 <script src="./js/matriz_dinamica.js" ></script>
 </head>
@@ -30,7 +30,7 @@
                 <div class="genMat">
                     <h1>Dimensiones Matriz 1</h1>
                     fila : <input type="number" min="1" id="fil1" value="2"> 
-                    <p  ><button id="creacion" onclick="crear();" >crear matrices</button><br></p>
+                    <p><button id="creacion" onclick="crear();" >crear matrices</button><br></p>
                     <h2>Matriz 1</h2>
                     <form id="m1" name="matriz1">
                     </form>
@@ -43,8 +43,18 @@
                 </div>
             </div>
             <div class="animacion2">
-                <div>
+                <div class="resultadosM">
                                 
+                </div>
+                <button id="prueba">prueba</button>
+                <div class="caja " id="caja" >
+                    <div class ="subCaja animar">P1=a(f-h) = </div>
+                    <div class ="subCaja animar">P2=(a+b)h = </div>
+                    <div class ="subCaja animar">P3=(c+d)e = </div>
+                    <div class ="subCaja animar">P4=d(g-e) = </div>
+                    <div class ="subCaja animar">P5=(a+d)(e+h) = </div>
+                    <div class ="subCaja animar">P6=(b-d)(g+h) = </div>
+                    <div class ="subCaja animar">P7=(a-c)(e+f) = </div>
                 </div>
             </div>
         </section>
@@ -55,5 +65,6 @@
         <p>Perez Gonzalez Mayer Abraham</p>
         <p>Ortiz Salazar Manuel Eduardo</p>
     </footer>
+    <script src="./js/main.js" ></script>
 </body>
 </html>
