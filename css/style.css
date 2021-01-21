@@ -117,6 +117,19 @@ img.algoImg{
     animation-duration: 20s;
     position: relative;
 }
+.cajaSMc.animar{
+    width: 150px;height: 50px;
+    animation-name: animarSMc;
+    animation-duration: 20s;
+    position: relative;
+}
+.cajaSMd.animar{
+    width: 150px;height: 50px;
+    animation-name: animarSMd;
+    animation-duration: 20s;
+    position: relative;
+}
+
 .animacion{
      float: left;
      overflow: hidden;
@@ -130,15 +143,25 @@ img.algoImg{
 }
 
 @keyframes animarSMa {
-    0% { left: 0px; top: -107px;}
+    0% { left: 0px; top: -102px;}
     25% {width: 150px;height: 50px;left: 450px; top: -102px;}
     100% {width: 150px;height: 50px;left: 450px; top: -102px;} /*Finalizado*/
 }
 
 @keyframes animarSMb {
-    0% { left: -50px; top: -107px;}
-    25% {width: 150px;height: 50px;left: 300px; top: -60px;}
-    100% {width: 150px;height: 50px;left: 300px; top: -60px;} /*Finalizado*/
+    0% { left: -50px; top: -102px;}
+    25% {width: 150px;height: 50px;left: 300px; top: -58px;}
+    100% {width: 150px;height: 50px;left: 300px; top: -58px;} /*Finalizado*/
+}
+@keyframes animarSMc {
+    0% { left: -300px; top: -60px;}
+    25% {width: 150px;height: 50px;left: 150px; top: -15px;}
+    100% {width: 150px;height: 50px;left: 150px; top: -15x;} /*Finalizado*/
+}
+@keyframes animarSMd {
+    0% { left: 100px; top: -110px;}
+    25% {width: 150px;height: 50px;left: 450px; top: -21px;}
+    100% {width: 150px;height: 50px;left: 450px; top: -21px;} /*Finalizado*/
 }
 
 @keyframes animarCaja1 {

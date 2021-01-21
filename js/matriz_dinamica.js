@@ -467,12 +467,38 @@ var strassen = function(a, b) {
         conta++;
       }
     }
+    //Submatriz c
+    for(var i=2;i<filas_M1;i++){
+      var coso3 = document.createElement("BR");
+      document.getElementById("cajaSMc").appendChild(coso3);
+      for(var q=0;q<colucnas_M2/2;q++){
+        var caja4 = document.createElement("INPUT");
+        caja4.setAttribute("size","2");
+        caja4.setAttribute("value",A.get(i,q));
+        document.getElementById("cajaSMc").appendChild(caja4);
+        conta++;
+      }
+    }
+    //Submatriz d
+    for(var i=2;i<filas_M1;i++){
+      var coso3 = document.createElement("BR");
+      document.getElementById("cajaSMd").appendChild(coso3);
+      for(var q=2;q<colucnas_M2;q++){
+        var caja4 = document.createElement("INPUT");
+        caja4.setAttribute("size","2");
+        caja4.setAttribute("value",A.get(i,q));
+        document.getElementById("cajaSMd").appendChild(caja4);
+        conta++;
+      }
+    }
 
     var btn = document.getElementById('prueba'),
     //caja = document.getElementById('caja'),
     //caj2 = document.getElementById('caja2'),
     cajSMa = document.getElementById('cajaSMa'),
     cajSMb = document.getElementById('cajaSMb'),
+    cajSMc = document.getElementById('cajaSMc'),
+    cajSMd = document.getElementById('cajaSMd'),
     contador = 0;
 
     function empezarAnimacion() {
@@ -481,6 +507,8 @@ var strassen = function(a, b) {
         //caja2.classList.add('animar');
         cajaSMa.classList.add('animar');
         cajaSMb.classList.add('animar');
+        cajaSMc.classList.add('animar');
+        cajaSMd.classList.add('animar');
         contador = 1;
       }
       else {
@@ -488,6 +516,8 @@ var strassen = function(a, b) {
         //caja2.classList.remove('animar');
         cajaSMa.classList.remove('animar');
         cajaSMb.classList.remove('animar');
+        cajaSMc.classList.remove('animar');
+        cajaSMd.classList.remove('animar');
         contador = 0;
       }
     }
