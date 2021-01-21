@@ -287,11 +287,8 @@ var Matrix = {};
   };
 })();
 
-function saludo(){
-  console.log("Hola");
-}
 
-module.exports= {
+/*module.exports= {
   "Matriz" : Matrix 
 }
 

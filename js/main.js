@@ -6,8 +6,16 @@ function obtenerDatos() {
     window.alert(tam);
 }
 //PRUEBA DE EXPORTACION DE FUNCIONES
-const exp =  require("./strassen");
+/*const exp =  require("./strassen.js");
 
+function f1(){
+    var M = exp.Matriz.new(2,2,"MatrizA");
+    console.log(M.name);
+    console.log("Saludo");
+};
+
+f1();
+/*
 var tama = 2;
 var A = exp.Matriz.new(tama,tama,"A");
 var B = exp.Matriz.new(tama,tama,"B");
@@ -48,4 +56,4 @@ for(var i =0 ; i<tama;i++){
   for(var j =0 ; j<tama;j++){
     console.log(C.get(i,j));
   }
-}
+}*/
