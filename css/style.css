@@ -129,7 +129,30 @@ img.algoImg{
     animation-duration: 20s;
     position: relative;
 }
-
+.cajaSMe.animar{
+    width: 150px;height: 50px;
+    animation-name: animarSMe;
+    animation-duration: 20s;
+    position: relative;
+}
+.cajaSMf.animar{
+    width: 150px;height: 50px;
+    animation-name: animarSMf;
+    animation-duration: 20s;
+    position: relative;
+}
+.cajaSMg.animar{
+    width: 150px;height: 50px;
+    animation-name: animarSMg;
+    animation-duration: 20s;
+    position: relative;
+}
+.cajaSMh.animar{
+    width: 150px;height: 50px;
+    animation-name: animarSMh;
+    animation-duration: 20s;
+    position: relative;
+}
 .animacion{
      float: left;
      overflow: hidden;

@@ -492,6 +492,55 @@ var strassen = function(a, b) {
       }
     }
 
+    //Submatriz e 
+    for(var i=0;i<filas_M1/2;i++){
+      var coso3 = document.createElement("BR");
+      document.getElementById("cajaSMe").appendChild(coso3);
+      for(var q=0;q<colucnas_M2/2;q++){
+        var caja4 = document.createElement("INPUT");
+        caja4.setAttribute("size","2");
+        caja4.setAttribute("value",B.get(i,q));
+        document.getElementById("cajaSMe").appendChild(caja4);
+        conta++;
+      }
+    }
+    //Submatriz f
+    for(var i=0;i<filas_M1/2;i++){
+      var coso3 = document.createElement("BR");
+      document.getElementById("cajaSMf").appendChild(coso3);
+      for(var q=2;q<colucnas_M2;q++){
+        var caja4 = document.createElement("INPUT");
+        caja4.setAttribute("size","2");
+        caja4.setAttribute("value",B.get(i,q));
+        document.getElementById("cajaSMf").appendChild(caja4);
+        conta++;
+      }
+    }
+    //Submatriz g
+    for(var i=2;i<filas_M1;i++){
+      var coso3 = document.createElement("BR");
+      document.getElementById("cajaSMg").appendChild(coso3);
+      for(var q=0;q<colucnas_M2/2;q++){
+        var caja4 = document.createElement("INPUT");
+        caja4.setAttribute("size","2");
+        caja4.setAttribute("value",B.get(i,q));
+        document.getElementById("cajaSMg").appendChild(caja4);
+        conta++;
+      }
+    }
+    //Submatriz h
+    for(var i=2;i<filas_M1;i++){
+      var coso3 = document.createElement("BR");
+      document.getElementById("cajaSMh").appendChild(coso3);
+      for(var q=2;q<colucnas_M2;q++){
+        var caja4 = document.createElement("INPUT");
+        caja4.setAttribute("size","2");
+        caja4.setAttribute("value",B.get(i,q));
+        document.getElementById("cajaSMh").appendChild(caja4);
+        conta++;
+      }
+    }
+
     var btn = document.getElementById('prueba'),
     //caja = document.getElementById('caja'),
     //caj2 = document.getElementById('caja2'),
