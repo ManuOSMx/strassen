@@ -60,6 +60,12 @@ img.strImg{
     margin: auto;
     
 }
+img.algoImg{
+    max-width: 400px; 
+    max-height: 400px;
+    margin: auto;
+    
+}
 .botones ul li{
     list-style: none;
     float: left;
