@@ -136,7 +136,7 @@ img.algoImg{
 }
 
 @keyframes animarSMb {
-    0% { left: 100px; top: -152px;}
+    0% { left: -50px; top: -107px;}
     25% {width: 150px;height: 50px;left: 300px; top: -60px;}
     100% {width: 150px;height: 50px;left: 300px; top: -60px;} /*Finalizado*/
 }
