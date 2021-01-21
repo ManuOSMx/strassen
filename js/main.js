@@ -57,22 +57,28 @@ for(var i =0 ; i<tama;i++){
     console.log(C.get(i,j));
   }
 }*/
-var btn = document.getElementById('prueba'),
-    caja = document.getElementById('caja'),
-    caj2 = document.getElementById('caja2'),
+/*var btn = document.getElementById('prueba'),
+    //caja = document.getElementById('caja'),
+    //caj2 = document.getElementById('caja2'),
+    cajSMa = document.getElementById('cajaSMa'),
+    cajSMb = document.getElementById('cajaSMb'),
     contador = 0;
 
     function empezarAnimacion() {
       if(contador == 0){
-        caja.classList.add('animar');
-        caja2.classList.add('animar');
+        //caja.classList.add('animar');
+        //caja2.classList.add('animar');
+        cajaSMa.classList.add('animar');
+        cajaSMb.classList.add('animar');
         contador = 1;
       }
       else {
-        caja.classList.remove('animar');
-        caja2.classList.remove('animar');
+        //caja.classList.remove('animar');
+        //caja2.classList.remove('animar');
+        cajaSMa.classList.remove('animar');
+        cajaSMb.classList.remove('animar');
         contador = 0;
       }
     }
 
-    btn.addEventListener('click',empezarAnimacion,true);
+    btn.addEventListener('click',empezarAnimacion,true);*/

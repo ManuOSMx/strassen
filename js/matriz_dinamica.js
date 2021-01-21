@@ -360,6 +360,7 @@ var strassen = function(a, b) {
         var botonC = document.createElement("INPUT");
         botonC.setAttribute("Type","Button");
         botonC.setAttribute("Value","Calcular");
+        botonC.setAttribute("id","botonCalc");
         botonC.setAttribute("Onclick","calc();");//Envia los datos de la matriz
         //caja.setAttribute("type","number");
         document.getElementById("bot").appendChild(botonC);
@@ -430,7 +431,7 @@ var strassen = function(a, b) {
         conta++;
       }
     }
-    //Se agrega matriz A a animacion
+    //Se agrega matriz B a animacion
     for(var i=0;i<filas_M1;i++){
       var coso3 = document.createElement("BR");
       document.getElementById("caja2").appendChild(coso3);
@@ -442,6 +443,56 @@ var strassen = function(a, b) {
         conta++;
       }
     }
-    
+    //Submatriz a 
+    for(var i=0;i<filas_M1/2;i++){
+      var coso3 = document.createElement("BR");
+      document.getElementById("cajaSMa").appendChild(coso3);
+      for(var q=0;q<colucnas_M2/2;q++){
+        var caja4 = document.createElement("INPUT");
+        caja4.setAttribute("size","2");
+        caja4.setAttribute("value",A.get(i,q));
+        document.getElementById("cajaSMa").appendChild(caja4);
+        conta++;
+      }
+    }
+    //Submatriz b
+    for(var i=0;i<filas_M1/2;i++){
+      var coso3 = document.createElement("BR");
+      document.getElementById("cajaSMb").appendChild(coso3);
+      for(var q=2;q<colucnas_M2;q++){
+        var caja4 = document.createElement("INPUT");
+        caja4.setAttribute("size","2");
+        caja4.setAttribute("value",A.get(i,q));
+        document.getElementById("cajaSMb").appendChild(caja4);
+        conta++;
+      }
+    }
+
+    var btn = document.getElementById('prueba'),
+    //caja = document.getElementById('caja'),
+    //caj2 = document.getElementById('caja2'),
+    cajSMa = document.getElementById('cajaSMa'),
+    cajSMb = document.getElementById('cajaSMb'),
+    contador = 0;
+
+    function empezarAnimacion() {
+      if(contador == 0){
+        //caja.classList.add('animar');
+        //caja2.classList.add('animar');
+        cajaSMa.classList.add('animar');
+        cajaSMb.classList.add('animar');
+        contador = 1;
+      }
+      else {
+        //caja.classList.remove('animar');
+        //caja2.classList.remove('animar');
+        cajaSMa.classList.remove('animar');
+        cajaSMb.classList.remove('animar');
+        contador = 0;
+      }
+    }
+    empezarAnimacion();
+    btn.addEventListener('click',empezarAnimacion,true);
+
 
   }

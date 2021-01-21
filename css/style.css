@@ -104,6 +104,41 @@ img.algoImg{
     animation-duration: 5s;
     position: relative;
 }
+.cajaSMa.animar{
+    width: 150px;height: 50px;
+    animation-name: animarSMa;
+    animation-duration: 20s;
+    position: relative;
+}
+.cajaSMb.animar{
+    width: 150px;height: 50px;
+    animation-name: animarSMb;
+    animation-duration: 20s;
+    position: relative;
+}
+.animacion{
+     float: left;
+     overflow: hidden;
+     margin-right: 200px;
+}
+.container{
+    overflow: hidden;
+}
+.cj{
+    float: left;
+}
+
+@keyframes animarSMa {
+    0% { left: 0px; top: -102px;}
+    25% {width: 150px;height: 50px;left: 450px; top: -102px;}
+    100% {width: 150px;height: 50px;left: 450px; top: -102px;} /*Finalizado*/
+}
+
+@keyframes animarSMb {
+    0% { left: 100px; top: -152px;}
+    25% {width: 150px;height: 50px;left: 450px; top: -105px;}
+    100% {width: 150px;height: 50px;left: 450px; top: -105px;} /*Finalizado*/
+}
 
 @keyframes animarCaja1 {
 
