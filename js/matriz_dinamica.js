@@ -213,6 +213,7 @@ var Matrix = {};
   };
 
 var cont = 0;
+var val = []; 
 var strassen = function(a, b) {
   var n = a.n;
   
@@ -221,6 +222,7 @@ var strassen = function(a, b) {
   cont++;
   if(n == 1){
     C.set(0,0,Scalar.mulFunc(a.get(0,0),b.get(0,0)));
+    //console.log(C.name+": "+C.get(0,0));
   }
   else{
     var A = growNextPowerOf2(a);
@@ -236,6 +238,7 @@ var strassen = function(a, b) {
     var B12 = B.partition(0,   n/2, n/2, n,   "B12");
     var B21 = B.partition(n/2, 0,   n,   n/2, "B21");
     var B22 = B.partition(n/2, n/2, n,   n,   "B22");
+    
 
     var M1 = strassen(A11.add(A22), B11.add(B22));
     var M2 = strassen(A21.add(A22), B11         );
@@ -269,23 +272,28 @@ var strassen = function(a, b) {
     }
   }
 
-  return C;
+  for(var i=0;i<C.n;i++){
+    for(var j=0;j<C.n;j++){
+      //console.log(C.get(i,j));
+      val.push(C.get(i,j));
+    }
+  }
 
-  
+  return C;
 };
 
 
-  Matrix.strassenMatrixMul = function (a, b, leafSize) {
+  Matrix.strassenMatrixMul = function (a, b) {
     if (a.n !== b.n || a.m !== b.m) {
       throw "incompatible matrices, different dimensions";
     }
     if (a.n !== a.m) {
       throw "incompatible matrices, not square matrices";
     }
-    //var c = Matrix.new(a.n, b.m, "C");
-    //strassen(a, b, c, leafSize);
     var c = strassen(a,b);
     console.log("contador:"+cont);
+
+
     return c;
   };
 })();
@@ -396,7 +404,7 @@ var strassen = function(a, b) {
     }
 
     //Se calcula A*B con algoritmo de Strassen
-    C = Matrix.strassenMatrixMul(A,B,2);
+    C = Matrix.strassenMatrixMul(A,B);
 
     //Se muestra C en la pagina
     for(var i=0;i<filas_M1;i++){
@@ -410,4 +418,30 @@ var strassen = function(a, b) {
         conta++;
       }
     }
+    //Se agrega matriz A a animacion
+    for(var i=0;i<filas_M1;i++){
+      var coso3 = document.createElement("BR");
+      document.getElementById("caja").appendChild(coso3);
+      for(var q=0;q<colucnas_M2;q++){
+        var caja4 = document.createElement("INPUT");
+        caja4.setAttribute("size","2");
+        caja4.setAttribute("value",A.get(i,q));
+        document.getElementById("caja").appendChild(caja4);
+        conta++;
+      }
+    }
+    //Se agrega matriz A a animacion
+    for(var i=0;i<filas_M1;i++){
+      var coso3 = document.createElement("BR");
+      document.getElementById("caja2").appendChild(coso3);
+      for(var q=0;q<colucnas_M2;q++){
+        var caja4 = document.createElement("INPUT");
+        caja4.setAttribute("size","2");
+        caja4.setAttribute("value",B.get(i,q));
+        document.getElementById("caja2").appendChild(caja4);
+        conta++;
+      }
+    }
+    
+
   }

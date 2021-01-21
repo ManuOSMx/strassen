@@ -92,6 +92,12 @@ img.strImg{
     animation-name: animarSubcajas;
     color: white;
 }
+.caja2.animar{
+    width: 125px;height: 120px;
+    animation-name: animarCaja2;
+    animation-duration: 5s;
+    position: relative;
+}
 
 @keyframes animarCaja1 {
 
@@ -101,6 +107,15 @@ img.strImg{
     50% {}
     
     100% {width: 200px;height: 150px;background: blue;left: 500px; top: -100px;} /*Finalizado*/
+}
+@keyframes animarCaja2 {
+
+    0% {opacity:0; background: #aaa; left: 0px; top: -100px;}
+    20% {opacity: 1;width: 200px;height: 150px;background: red;left: 0px; top: 0px;}
+    25% {}
+    50% {}
+    
+    100% {width: 200px;height: 150px;background: blue;left: 500px; top: 70px;} /*Finalizado*/
 }
 @keyframes animarSubcajas {
     2% {opacity: 0;};

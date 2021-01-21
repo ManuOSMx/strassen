@@ -59,15 +59,18 @@ for(var i =0 ; i<tama;i++){
 }*/
 var btn = document.getElementById('prueba'),
     caja = document.getElementById('caja'),
+    caj2 = document.getElementById('caja2'),
     contador = 0;
 
     function empezarAnimacion() {
       if(contador == 0){
         caja.classList.add('animar');
+        caja2.classList.add('animar');
         contador = 1;
       }
       else {
         caja.classList.remove('animar');
+        caja2.classList.remove('animar');
         contador = 0;
       }
     }
