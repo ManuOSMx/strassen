@@ -113,7 +113,7 @@ matrizar1[n] = new Array(2);
 //Fin de INICIALIZAR MATRIZAR 1 DE 2 DIMENSIONES de n elementos
 var cosos_de_matrizar1=0;
 for(var k = 0; k<filas_M1;k++){
-for(var j= 0;j<colucnas_M1;j++){
+for(var j= 0;j<colucnas_M1;j++){//se obtienen datos AQUI usar funciones strassen
  var n1=parseInt(document.matriz1.elements[cosos_de_matrizar1].value);
  matrizar1[k][j]=n1;
  cosos_de_matrizar1++;

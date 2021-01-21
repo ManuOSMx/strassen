@@ -286,8 +286,17 @@ var Matrix = {};
     return c;
   };
 })();
-//inicia llamadas de funciones
 
+function saludo(){
+  console.log("Hola");
+}
+
+module.exports= {
+  "Matriz" : Matrix 
+}
+
+/*
+//inicia llamadas de funciones
 var tam = 2; //tamaño de las matrices
 
 var A = Matrix.new(tam,tam,"A");
@@ -316,7 +325,7 @@ for(var i =0 ; i<tam;i++){
     cont++;
   }
 }
-//verifica datos en matriz A
+//verifica datos en matriz B
 for(var i =0 ; i<tam;i++){
   for(var j =0 ; j<tam;j++){
     console.log(B.get(i,j));
@@ -330,3 +339,4 @@ for(var i =0 ; i<tam;i++){
     console.log(C.get(i,j));
   }
 }
+*/
