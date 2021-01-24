@@ -422,16 +422,16 @@ var strassen = function(a, b) {
     //Se agrega matriz A a animacion
     for(var i=0;i<filas_M1;i++){
       var coso3 = document.createElement("BR");
-      document.getElementById("caja").appendChild(coso3);
+      document.getElementById("cajaSMa").appendChild(coso3);
       for(var q=0;q<colucnas_M2;q++){
         var caja4 = document.createElement("INPUT");
         caja4.setAttribute("size","2");
         caja4.setAttribute("value",A.get(i,q));
-        document.getElementById("caja").appendChild(caja4);
+        document.getElementById("cajaSMa").appendChild(caja4);
         conta++;
       }
     }
-    //Se agrega matriz B a animacion
+    /*//Se agrega matriz B a animacion
     for(var i=0;i<filas_M1;i++){
       var coso3 = document.createElement("BR");
       document.getElementById("caja2").appendChild(coso3);
@@ -539,7 +539,7 @@ var strassen = function(a, b) {
         document.getElementById("cajaSMh").appendChild(caja4);
         conta++;
       }
-    }
+    }*/
 
     var btn = document.getElementById('prueba'),
     //caja = document.getElementById('caja'),
