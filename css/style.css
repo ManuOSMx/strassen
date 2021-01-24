@@ -1,8 +1,13 @@
-/*==GENERAL==*/
+/*================================GENERAL===============================*/
+:root {
+    --color-section: rgb(2, 69, 122);
+    
+}
 #fondoGeneral {
     background-color: rgb(0, 27, 72);
 }
 #footerFondo {
+    margin-top: auto;
     padding-top: 1px;
     padding-bottom: 10px;
     padding-left: 20px;
@@ -38,7 +43,11 @@ h1 {
     padding: 5px;
     font-family: Quicksand; 
 }
-p{
+h2 {
+    color:rgb(151, 202, 216);
+    text-align: center;
+}
+p {
     color:rgb(151, 202, 216);
     text-align: center;
     font-family: Quicksand; 
@@ -77,143 +86,114 @@ img.algoImg{
     border: 1px solid #ccc;
     background-color: rgb(214, 232, 238);
 }
-/*==ANIMACION==*/
-.animacion2 {
-    padding-right: 5px;
-    margin-right: 20px;
-    margin-bottom: 5px;
-    border: 1px solid rgb(2, 69, 122);
+/*============================ANIMACION===============================*/
+#fondoAnimacion {
+    background-color: rgb(0, 27, 72);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: Quicksand;
 }
-#caja {
-    position: relative;
+
+.main-animacion {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    margin-bottom: 700px;
+
 }
-.caja.animar{
+@media screen and (min-width:1024px){
+    .main-animacion{
+        display: flex;
+        flex-direction: row;
+    }
+    .container-matriz {
+        flex-basis: 25%;
+   
+    }
+    .container-animacion {
+        flex-basis: 75%;
+    }
+}
+.container-matriz {
+    background-color: var(--color-section);
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container-animacion {
+    margin-bottom: 700px;
+    background-color: var(--color-section);
+    flex-grow: 1;
+    flex-direction: column;
+    display: flex;
     
-    width: 125px;height: 120px;
-    animation-name: animarCaja1;
+}
+.container-TituloAni {
+    justify-content: center;
+    align-items: center;
+}
+.container-movimiento {
+    display: flex;
+    flex-direction: column;
+}
+/*==Movimiento cajas==*/
+#cajaSMa {
+    
+}
+#cajaSMa.animarCaja {
+    width: 100px;
+    height: 100px;
+    background-color: paleturquoise;
+    animation-name: animacionCajaSMa;
     animation-duration: 5s;
     position: relative;
 }
-.subCaja.animar{
+#cajaSMb {
     
-    animation-name: animarSubcajas;
-    color: white;
 }
-.caja2.animar{
-    width: 125px;height: 120px;
-    animation-name: animarCaja2;
+#cajaSMb.animarCaja {
+    width: 100px;
+    height: 100px;
+    background-color: palevioletred;
+    animation-name: animacionCajaSMb;
     animation-duration: 5s;
     position: relative;
 }
-.cajaSMa.animar{
-    width: 150px;height: 50px;
-    animation-name: animarSMa;
-    animation-duration: 20s;
-    position: relative;
-}
-.cajaSMb.animar{
-    width: 150px;height: 50px;
-    animation-name: animarSMb;
-    animation-duration: 20s;
-    position: relative;
-}
-.cajaSMc.animar{
-    width: 150px;height: 50px;
-    animation-name: animarSMc;
-    animation-duration: 20s;
-    position: relative;
-}
-.cajaSMd.animar{
-    width: 150px;height: 50px;
-    animation-name: animarSMd;
-    animation-duration: 20s;
-    position: relative;
-}
-.cajaSMe.animar{
-    width: 150px;height: 50px;
-    animation-name: animarSMe;
-    animation-duration: 20s;
-    position: relative;
-}
-.cajaSMf.animar{
-    width: 150px;height: 50px;
-    animation-name: animarSMf;
-    animation-duration: 20s;
-    position: relative;
-}
-.cajaSMg.animar{
-    width: 150px;height: 50px;
-    animation-name: animarSMg;
-    animation-duration: 20s;
-    position: relative;
-}
-.cajaSMh.animar{
-    width: 150px;height: 50px;
-    animation-name: animarSMh;
-    animation-duration: 20s;
-    position: relative;
-}
-.animacion{
-     float: left;
-     overflow: hidden;
-     
-}
-.container{
-    overflow: hidden;
-}
-.cj{
-    float: left;
-}
+#cajaSMc {
 
-@keyframes animarSMa {
-    0% { left: 0px; top: -102px;}
-    25% {width: 150px;height: 50px;left: 450px; top: -102px;}
-    100% {width: 150px;height: 50px;left: 450px; top: -102px;} /*Finalizado*/
 }
-
-@keyframes animarSMb {
-    0% { left: -50px; top: -102px;}
-    25% {width: 150px;height: 50px;left: 300px; top: -58px;}
-    100% {width: 150px;height: 50px;left: 300px; top: -58px;} /*Finalizado*/
+#cajaSMc.animarCaja {
+    width: 100px;
+    height: 100px;
+    background-color: blueviolet;
+    animation-name: animacionCajaSMc;
+    animation-duration: 5s;
+    position: relative;
 }
-@keyframes animarSMc {
-    0% { left: -300px; top: -60px;}
-    25% {width: 150px;height: 50px;left: 150px; top: -15px;}
-    100% {width: 150px;height: 50px;left: 150px; top: -15x;} /*Finalizado*/
+@keyframes animacionCajaSMa {
+    0% {background-color: greenyellow;left: 0px;top: 0px;}
+    25% {background-color: greenyellow;}
+    50% {background-color: greenyellow;}
+    75% {background-color: greenyellow;}
+    100% {background-color: greenyellow;left: 0px;top: 1000px;}
 }
-@keyframes animarSMd {
-    0% { left: 100px; top: -110px;}
-    25% {width: 150px;height: 50px;left: 450px; top: -21px;}
-    100% {width: 150px;height: 50px;left: 450px; top: -21px;} /*Finalizado*/
+@keyframes animacionCajaSMb {
+    0% {background-color: brown;left: 0px;top: 0px;}
+    25% {background-color: brown;}
+    50% {background-color: brown;}
+    75% {background-color: brown;}
+    100% {background-color: brown;left: 0px;top: 0px;}
 }
-
-@keyframes animarCaja1 {
-
-    0% {opacity:0; background: #aaa; left: 0px; top: -100px;}
-    20% {opacity: 1;width: 200px;height: 150px;background: green;left: 0px; top: 0px;}
-    25% {}
-    50% {}
-    
-    100% {width: 200px;height: 150px;background: blue;left: 500px; top: -100px;} /*Finalizado*/
+@keyframes animacionCajaSMc {
+    0% {background-color: greenyellow;left: 0px;top: 0px;}
+    25% {background-color: greenyellow;}
+    50% {background-color: greenyellow;left: 0px;top: 0px;}
+    75% {background-color: greenyellow;}
+    100% {background-color: greenyellow;left: 0px;top: 0px;}
 }
-@keyframes animarCaja2 {
-
-    0% {opacity:0; background: #aaa; left: 0px; top: -100px;}
-    20% {opacity: 1;width: 200px;height: 150px;background: red;left: 0px; top: 0px;}
-    25% {}
-    50% {}
-    
-    100% {width: 200px;height: 150px;background: blue;left: 500px; top: 70px;} /*Finalizado*/
-}
-@keyframes animarSubcajas {
-    2% {opacity: 0;};
-    25%{};
-}
-/*==cfuente==*/
-.cFuente img{
-    padding-left: 30px;
-    margin-left: auto;
-}
+/*===============================MATRICES===============================*/
 .matrix {
     position: relative;
     margin-bottom: 10px;
@@ -241,4 +221,10 @@ img.algoImg{
 }
 .genMat{
     border: 1px solid #000;
+}
+
+/*===============================cfuente===============================*/
+.cFuente img{
+    padding-left: 30px;
+    margin-left: auto;
 }
