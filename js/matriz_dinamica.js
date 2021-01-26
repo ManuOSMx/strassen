@@ -419,7 +419,71 @@ var strassen = function(a, b) {
         conta++;
       }
     }
-    //Se agrega matriz A a animacion
+    //inicializacion de la animacion
+    var tamMin = 25;
+    var tamMat = tamMin*C.n;
+    var canvas = document.getElementById('canvas');
+      canvas.width = canvas.width;
+      if (canvas.getContext) {
+        var ctx = canvas.getContext('2d');
+
+        //Creamos matriz A
+        var r = new Path2D();
+        var px = 70;  //posicion en x inicial de la matriz
+        var py = 5;   //posicion en y inicial de la matriz
+        
+        for(var i=0;i<C.n;i++){
+          for(var j=0;j<C.n;j++){
+            r.rect(px,py,tamMin,tamMin);
+            if(A.get(i,j) >= -9 && A.get(i,j) < 10){
+              ctx.font = '20px serif';
+            }
+            else if ((A.get(i,j) >= -99 && A.get(i,j) < -9) || (A.get(i,j) >= 10 && A.get(i,j) < 100) ){
+              ctx.font = '14px serif';
+            }
+            else{
+              ctx.font = '12px serif';
+            }
+            ctx.fillText(A.get(i,j),px+5,py+18);
+            ctx.stroke(r);
+            px = px+tamMin;
+          }
+          px=70;
+          py=py+tamMin;
+        }
+        //Texto A =
+        ctx.font = '30px serif';
+        var pmit = py-(tamMat/2);
+        ctx.fillText("A =",10,pmit);
+        //Creamos matriz B
+        px = 70;
+        py = py+20;
+        for(var i=0;i<C.n;i++){
+          for(var j=0;j<C.n;j++){
+            r.rect(px,py,tamMin,tamMin);
+            if(B.get(i,j) >= -9 && B.get(i,j) < 10){
+              ctx.font = '20px serif';
+            }
+            else if ((B.get(i,j) >= -99 && B.get(i,j) < -9) || (B.get(i,j) >= 10 && B.get(i,j) < 100) ){
+              ctx.font = '14px serif';
+            }
+            else{
+              ctx.font = '12px serif';
+            }
+            ctx.fillText(B.get(i,j),px+5,py+18);
+            ctx.stroke(r);
+            px = px+tamMin;
+          }
+          px=70;
+          py=py+tamMin;
+        }
+        //Texto B =
+        ctx.font = '30px serif';
+        pmit = py-(tamMat/2);
+        ctx.fillText("B =",10,pmit);
+
+      }
+    /*//Se agrega matriz A a animacion
     for(var i=0;i<filas_M1;i++){
       var coso3 = document.createElement("BR");
       document.getElementById("cajaSMa").appendChild(coso3);
@@ -431,7 +495,7 @@ var strassen = function(a, b) {
         conta++;
       }
     }
-    /*//Se agrega matriz B a animacion
+    //Se agrega matriz B a animacion
     for(var i=0;i<filas_M1;i++){
       var coso3 = document.createElement("BR");
       document.getElementById("caja2").appendChild(coso3);
@@ -541,7 +605,7 @@ var strassen = function(a, b) {
       }
     }*/
 
-    var btn = document.getElementById('prueba'),
+    /*var btn = document.getElementById('prueba'),
     //caja = document.getElementById('caja'),
     //caj2 = document.getElementById('caja2'),
     cajSMa = document.getElementById('cajaSMa'),
@@ -571,7 +635,7 @@ var strassen = function(a, b) {
       }
     }
     empezarAnimacion();
-    btn.addEventListener('click',empezarAnimacion,true);
+    btn.addEventListener('click',empezarAnimacion,true);*/
 
 
   }
