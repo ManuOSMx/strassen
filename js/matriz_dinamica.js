@@ -423,14 +423,15 @@ var strassen = function(a, b) {
     var tamMin = 25;
     var tamMat = tamMin*C.n;
     var canvas = document.getElementById('canvas');
-      canvas.width = canvas.width;
+      canvas.width = canvas.width;//limpia el canvas
       if (canvas.getContext) {
         var ctx = canvas.getContext('2d');
 
         //Creamos matriz A
         var r = new Path2D();
+        var posInitY = 50;
         var px = 70;  //posicion en x inicial de la matriz
-        var py = 5;   //posicion en y inicial de la matriz
+        var py = posInitY;   //posicion en y inicial de la matriz
         
         for(var i=0;i<C.n;i++){
           for(var j=0;j<C.n;j++){
@@ -456,8 +457,8 @@ var strassen = function(a, b) {
         var pmit = py-(tamMat/2);
         ctx.fillText("A =",10,pmit);
         //Creamos matriz B
-        px = 70;
-        py = py+20;
+        px = 70+tamMat+100;
+        py = posInitY;
         for(var i=0;i<C.n;i++){
           for(var j=0;j<C.n;j++){
             r.rect(px,py,tamMin,tamMin);
@@ -474,168 +475,252 @@ var strassen = function(a, b) {
             ctx.stroke(r);
             px = px+tamMin;
           }
-          px=70;
+          px=70+tamMat+100;
           py=py+tamMin;
         }
         //Texto B =
         ctx.font = '30px serif';
         pmit = py-(tamMat/2);
-        ctx.fillText("B =",10,pmit);
+        px = 70+tamMat+40;
+        ctx.fillText("B =",px,pmit);
 
       }
-    /*//Se agrega matriz A a animacion
-    for(var i=0;i<filas_M1;i++){
-      var coso3 = document.createElement("BR");
-      document.getElementById("cajaSMa").appendChild(coso3);
-      for(var q=0;q<colucnas_M2;q++){
-        var caja4 = document.createElement("INPUT");
-        caja4.setAttribute("size","2");
-        caja4.setAttribute("value",A.get(i,q));
-        document.getElementById("cajaSMa").appendChild(caja4);
-        conta++;
+    //funcion para poner las letras de la "a" a la "h"
+    function ponerLetrasA_H(nl){
+      py = posInitY+tamMat+70+(tamMat/4);
+      var espacio = 40;
+      var letra;
+      var newTamM = tamMat/2;
+      px = 10+((espacio+newTamM)*nl);
+      switch(nl){
+        case 0: //para a
+          letra = "a =";
+        break;
+        case 1: //para b
+        letra = "b =";
+        break;
+        case 2: //para c
+        letra = "c ="; 
+        break;
+        case 3: //para d
+        letra = "d =";
+        break;
+        case 4: //para e
+        letra = "e =";
+        break;
+        case 5: //para f
+        letra = "f ="; 
+        break;
+        case 6: //para g
+        letra = "g ="; 
+        break;
+        case 7: //para h
+        letra = "h =";
+        break;
+        default: 
+        break;
       }
+      ctx.font = '20px serif';
+      ctx.fillText(letra,px,py);
     }
-    //Se agrega matriz B a animacion
-    for(var i=0;i<filas_M1;i++){
-      var coso3 = document.createElement("BR");
-      document.getElementById("caja2").appendChild(coso3);
-      for(var q=0;q<colucnas_M2;q++){
-        var caja4 = document.createElement("INPUT");
-        caja4.setAttribute("size","2");
-        caja4.setAttribute("value",B.get(i,q));
-        document.getElementById("caja2").appendChild(caja4);
-        conta++;
+    //funcion para pintar los recuadros de las matrices A y B
+    async function pintarCuad(n){
+      var newTamM = tamMat/2;
+      switch(n){
+        case 0: //para a
+          py = posInitY;
+          px = 70;  
+        break;
+        case 1: //para b
+          py = posInitY;
+          px = 70+newTamM; 
+        break;
+        case 2: //para c
+          py = posInitY+newTamM;
+          px = 70; 
+        break;
+        case 3: //para d
+          py = posInitY+newTamM;
+          px = 70+newTamM;
+        break;
+        case 4: //para e
+          py = posInitY;
+          px = 70+tamMat+100;
+        break;
+        case 5: //para f
+          py = posInitY;
+          px = 70+tamMat+100+newTamM; 
+        break;
+        case 6: //para g
+          py = posInitY+newTamM;
+          px = 70+tamMat+100;
+        break;
+        case 7: //para h
+          py = posInitY+newTamM;
+          px = 70+tamMat+100+newTamM;
+        break;
+        default: 
+        break;
       }
-    }
-    //Submatriz a 
-    for(var i=0;i<filas_M1/2;i++){
-      var coso3 = document.createElement("BR");
-      document.getElementById("cajaSMa").appendChild(coso3);
-      for(var q=0;q<colucnas_M2/2;q++){
-        var caja4 = document.createElement("INPUT");
-        caja4.setAttribute("size","2");
-        caja4.setAttribute("value",A.get(i,q));
-        document.getElementById("cajaSMa").appendChild(caja4);
-        conta++;
-      }
-    }
-    //Submatriz b
-    for(var i=0;i<filas_M1/2;i++){
-      var coso3 = document.createElement("BR");
-      document.getElementById("cajaSMb").appendChild(coso3);
-      for(var q=2;q<colucnas_M2;q++){
-        var caja4 = document.createElement("INPUT");
-        caja4.setAttribute("size","2");
-        caja4.setAttribute("value",A.get(i,q));
-        document.getElementById("cajaSMb").appendChild(caja4);
-        conta++;
-      }
-    }
-    //Submatriz c
-    for(var i=2;i<filas_M1;i++){
-      var coso3 = document.createElement("BR");
-      document.getElementById("cajaSMc").appendChild(coso3);
-      for(var q=0;q<colucnas_M2/2;q++){
-        var caja4 = document.createElement("INPUT");
-        caja4.setAttribute("size","2");
-        caja4.setAttribute("value",A.get(i,q));
-        document.getElementById("cajaSMc").appendChild(caja4);
-        conta++;
-      }
-    }
-    //Submatriz d
-    for(var i=2;i<filas_M1;i++){
-      var coso3 = document.createElement("BR");
-      document.getElementById("cajaSMd").appendChild(coso3);
-      for(var q=2;q<colucnas_M2;q++){
-        var caja4 = document.createElement("INPUT");
-        caja4.setAttribute("size","2");
-        caja4.setAttribute("value",A.get(i,q));
-        document.getElementById("cajaSMd").appendChild(caja4);
-        conta++;
-      }
+      ctx.strokeStyle = "red";
+      var rn = new Path2D();
+      rn.rect(px,py,newTamM ,newTamM);
+      ctx.stroke(rn);
+      await sleep(400);
+      ctx.strokeStyle = "black";
+      ctx.stroke(rn);
     }
 
-    //Submatriz e 
-    for(var i=0;i<filas_M1/2;i++){
-      var coso3 = document.createElement("BR");
-      document.getElementById("cajaSMe").appendChild(coso3);
-      for(var q=0;q<colucnas_M2/2;q++){
-        var caja4 = document.createElement("INPUT");
-        caja4.setAttribute("size","2");
-        caja4.setAttribute("value",B.get(i,q));
-        document.getElementById("cajaSMe").appendChild(caja4);
-        conta++;
+    function copiarSubMat(n){
+      py = posInitY+tamMat+70;
+      var espacio = 40;
+      var newTamM = tamMat/2;
+      px = 40+((espacio+newTamM)*n);
+      var matriz;
+      var inicioF;
+      var finalF;
+      var inicioC;
+      var finalC;
+      switch(n){
+        case 0: //para a
+          matriz = A;
+          inicioF = 0;
+          finalF = C.n/2;
+          inicioC = 0;
+          finalC = C.n/2;
+        break;
+        case 1: //para b
+          matriz = A;
+          inicioF = 0;
+          finalF = C.n/2;
+          inicioC = C.n/2;
+          finalC = C.n; 
+        break;
+        case 2: //para c
+          matriz = A;
+          inicioF = C.n/2;
+          finalF = C.n;
+          inicioC = 0;
+          finalC = C.n/2; 
+        break;
+        case 3: //para d
+          matriz = A;
+          inicioF = C.n/2;
+          finalF = C.n;
+          inicioC = C.n/2;
+          finalC = C.n;
+        break;
+        case 4: //para e
+          matriz = B;
+          inicioF = 0;
+          finalF = C.n/2;
+          inicioC = 0;
+          finalC = C.n/2;
+        break;
+        case 5: //para f
+          matriz = B;
+          inicioF = 0;
+          finalF = C.n/2;
+          inicioC = C.n/2;
+          finalC = C.n; 
+        break;
+        case 6: //para g
+          matriz = B;
+          inicioF = C.n/2;
+          finalF = C.n;
+          inicioC = 0;
+          finalC = C.n/2;
+        break;
+        case 7: //para h
+          matriz = B;
+          inicioF = C.n/2;
+          finalF = C.n;
+          inicioC = C.n/2;
+          finalC = C.n;
+        break;
+        default: 
+        break;
       }
-    }
-    //Submatriz f
-    for(var i=0;i<filas_M1/2;i++){
-      var coso3 = document.createElement("BR");
-      document.getElementById("cajaSMf").appendChild(coso3);
-      for(var q=2;q<colucnas_M2;q++){
-        var caja4 = document.createElement("INPUT");
-        caja4.setAttribute("size","2");
-        caja4.setAttribute("value",B.get(i,q));
-        document.getElementById("cajaSMf").appendChild(caja4);
-        conta++;
-      }
-    }
-    //Submatriz g
-    for(var i=2;i<filas_M1;i++){
-      var coso3 = document.createElement("BR");
-      document.getElementById("cajaSMg").appendChild(coso3);
-      for(var q=0;q<colucnas_M2/2;q++){
-        var caja4 = document.createElement("INPUT");
-        caja4.setAttribute("size","2");
-        caja4.setAttribute("value",B.get(i,q));
-        document.getElementById("cajaSMg").appendChild(caja4);
-        conta++;
-      }
-    }
-    //Submatriz h
-    for(var i=2;i<filas_M1;i++){
-      var coso3 = document.createElement("BR");
-      document.getElementById("cajaSMh").appendChild(coso3);
-      for(var q=2;q<colucnas_M2;q++){
-        var caja4 = document.createElement("INPUT");
-        caja4.setAttribute("size","2");
-        caja4.setAttribute("value",B.get(i,q));
-        document.getElementById("cajaSMh").appendChild(caja4);
-        conta++;
-      }
-    }*/
 
-    /*var btn = document.getElementById('prueba'),
-    //caja = document.getElementById('caja'),
-    //caj2 = document.getElementById('caja2'),
-    cajSMa = document.getElementById('cajaSMa'),
-    cajSMb = document.getElementById('cajaSMb'),
-    cajSMc = document.getElementById('cajaSMc'),
-    cajSMd = document.getElementById('cajaSMd'),
-    contador = 0;
-
-    function empezarAnimacion() {
-      if(contador == 0){
-        //caja.classList.add('animar');
-        //caja2.classList.add('animar');
-        cajaSMa.classList.add('animar');
-        cajaSMb.classList.add('animar');
-        cajaSMc.classList.add('animar');
-        cajaSMd.classList.add('animar');
-        contador = 1;
+      for(var i=inicioF;i<finalF;i++){
+        for(var j=inicioC;j<finalC;j++){
+          r.rect(px,py,tamMin,tamMin);
+          if(matriz.get(i,j) >= -9 && matriz.get(i,j) < 10){
+            ctx.font = '20px serif';
+          }
+          else if ((matriz.get(i,j) >= -99 && matriz.get(i,j) < -9) || (matriz.get(i,j) >= 10 && matriz.get(i,j) < 100) ){
+            ctx.font = '14px serif';
+          }
+          else{
+            ctx.font = '12px serif';
+          }
+          ctx.fillText(matriz.get(i,j),px+5,py+18);
+          ctx.stroke(r);
+          px = px+tamMin;
+        }
+        px=40+((espacio+newTamM)*n);
+        py=py+tamMin;
       }
-      else {
-        //caja.classList.remove('animar');
-        //caja2.classList.remove('animar');
-        cajaSMa.classList.remove('animar');
-        cajaSMb.classList.remove('animar');
-        cajaSMc.classList.remove('animar');
-        cajaSMd.classList.remove('animar');
-        contador = 0;
+
+
+    }
+
+
+    function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    function ponerForm(n){
+      var espacio = 40*n;
+      py = posInitY+tamMat+130+(tamMat/2)+espacio;
+      px = 70;
+      ctx.font = '25px serif';
+      switch(n){
+        case 0:
+          ctx.fillText("P1: (a+d)(e+f) =",px,py);
+        break;
+        case 1:
+          ctx.fillText("P2: (c+d)e =",px,py);
+        break;
+        case 2:
+          ctx.fillText("P3: a(f+h) =",px,py);
+        break;
+        case 3:
+          ctx.fillText("P4: d(g+e) =",px,py);
+        break;
+        case 4:
+          ctx.fillText("P5: (a+b)d =",px,py);
+        break;
+        case 5:
+          ctx.fillText("P6: (c+a)(e+f) =",px,py);
+        break;
+        case 6:
+          ctx.fillText("P7: (b+d)(g+h) =",px,py);
+        break;
+        default:
+        break;
       }
     }
-    empezarAnimacion();
-    btn.addEventListener('click',empezarAnimacion,true);*/
+    
+    //funcion que inicia la animacion
+    var btnI = document.getElementById('iniciar');
+    async function empezarAnimacion() {
+      for(var i=0;i<8;i++){
+        ponerLetrasA_H(i);
+        await sleep(1000);
+        pintarCuad(i);
+        await sleep(600);
+        copiarSubMat(i)
+        await sleep(600);
+      }
+      await sleep(300);
+      for(var i=0;i<7;i++){
+        ponerForm(i);
+        await sleep(900);
+      }
+      
+    }
+    btnI.addEventListener('click',empezarAnimacion,true);
 
 
   }

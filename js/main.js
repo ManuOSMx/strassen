@@ -57,7 +57,7 @@ for(var i =0 ; i<tama;i++){
     console.log(C.get(i,j));
   }
 }*/
-var btn = document.getElementById('iniciar'),
+/*var btn = document.getElementById('iniciar'),
     cajSMa = document.getElementById('cajaSMa'),
     cajSMb = document.getElementById('cajaSMb'),
     cajSMc = document.getElementById('cajaSMc'),
@@ -78,4 +78,4 @@ var btn = document.getElementById('iniciar'),
       }
     }
 
-    btn.addEventListener('click',empezarAnimacion,true);
+    btn.addEventListener('click',empezarAnimacion,true);*/
