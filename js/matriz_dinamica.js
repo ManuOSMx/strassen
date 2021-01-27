@@ -16,7 +16,7 @@ var Scalar = {};
   };
 })();
 
-
+var valores = [];
 // Matrix stuff
 var Matrix = {};
 (function () {
@@ -214,8 +214,8 @@ var Matrix = {};
   };
 
 var cont = 0;
-var valores = [];
-var strassen = function(a, b) {
+
+var strassen = function(a, b,ln) {
   var n = a.n;
   
   var C = Matrix.new(n,n,"C"+cont);
@@ -241,13 +241,13 @@ var strassen = function(a, b) {
     var B22 = B.partition(n/2, n/2, n,   n,   "B22");
     
 
-    var M1 = strassen(A11.add(A22), B11.add(B22));
-    var M2 = strassen(A21.add(A22), B11         );
-    var M3 = strassen(A11         , B12.sub(B22));
-    var M4 = strassen(A22         , B21.sub(B11));
-    var M5 = strassen(A11.add(A12), B22         );
-    var M6 = strassen(A21.sub(A11), B11.add(B12));
-    var M7 = strassen(A12.sub(A22), B21.add(B22));
+    var M1 = strassen(A11.add(A22), B11.add(B22),ln);
+    var M2 = strassen(A21.add(A22), B11         ,ln);
+    var M3 = strassen(A11         , B12.sub(B22),ln);
+    var M4 = strassen(A22         , B21.sub(B11),ln);
+    var M5 = strassen(A11.add(A12), B22         ,ln);
+    var M6 = strassen(A21.sub(A11), B11.add(B12),ln);
+    var M7 = strassen(A12.sub(A22), B21.add(B22),ln);
 
     var C11 = M1.add(M4).sub(M5).add(M7);
     var C12 = M3.add(M5);
@@ -273,13 +273,15 @@ var strassen = function(a, b) {
     }
   }
 
-  for(var i=0;i<C.n;i++){
-    for(var j=0;j<C.n;j++){
-      //console.log(C.get(i,j));
-      valores.push(C.get(i,j));
+  if(C.n >= ln){
+    for(var i=0;i<C.n;i++){
+      for(var j=0;j<C.n;j++){
+        //console.log(C.get(i,j)+" "+ln);
+        valores.push(C.get(i,j));
+      }
     }
+    //console.log("----------------");
   }
-  //console.log("----------------");
   return C;
 };
 
@@ -291,9 +293,7 @@ var strassen = function(a, b) {
     if (a.n !== a.m) {
       throw "incompatible matrices, not square matrices";
     }
-    var c = strassen(a,b);
-    console.log("contador:"+cont);
-    console.log(valores.length);
+    var c = strassen(a,b,a.n/2);
     return c;
   };
 })();
@@ -405,7 +405,7 @@ var strassen = function(a, b) {
 
     //Se calcula A*B con algoritmo de Strassen
     C = Matrix.strassenMatrixMul(A,B);
-
+    
     //Se muestra C en la pagina
     for(var i=0;i<filas_M1;i++){
       var coso2 = document.createElement("BR");
@@ -708,7 +708,7 @@ var strassen = function(a, b) {
       
 
     }
-    
+    var contPos = 0;
     //funcion para poner las matrices resultado de P1 a P7
     function ponerMatRP1AP7(n){
       var espacio = ((tamMat/2)+10)*n;
@@ -717,44 +717,20 @@ var strassen = function(a, b) {
       }
       py = posInitY+tamMat+110+(tamMat/2)+espacio;
       px = 400;
-      switch(n){
-        case 0:
-          
-        break;
-        case 1:
-          
-        break;
-        case 2:
-          
-        break;
-        case 3:
-          
-        break;
-        case 4:
-          
-        break;
-        case 5:
-          
-        break;
-        case 6:
-          
-        break;
-        default:
-        break;
-      }
       for(var i=0;i<C.n/2;i++){
         for(var j=0;j<C.n/2;j++){
           r.rect(px,py,tamMin,tamMin);
-          /*if(matriz.get(i,j) >= -9 && matriz.get(i,j) < 10){
+          if(valores[contPos] >= -9 && valores[contPos] < 10){
             ctx.font = '20px serif';
           }
-          else if ((matriz.get(i,j) >= -99 && matriz.get(i,j) < -9) || (matriz.get(i,j) >= 10 && matriz.get(i,j) < 100) ){
+          else if ((valores[contPos] >= -99 && valores[contPos] < -9) || (valores[contPos] >= 10 && valores[contPos] < 100) ){
             ctx.font = '14px serif';
           }
           else{
             ctx.font = '12px serif';
           }
-          ctx.fillText(matriz.get(i,j),px+5,py+18);*/
+          ctx.fillText(valores[contPos],px+5,py+18);
+          contPos = contPos+1;
           ctx.stroke(r);
           px = px+tamMin;
         }
@@ -795,6 +771,7 @@ var strassen = function(a, b) {
       }
     }
     //funcion para poner las matrices resultado de C11 a C22
+    var contIns = 0;
     function ponerMatRC111AC22(n){
       var espacio = ((tamMat/2)+10)*n;
       var espacioFormAnt = ((tamMat/2)+10)*6;
@@ -805,43 +782,47 @@ var strassen = function(a, b) {
       py = posInitY+tamMat+110+90+(tamMat/2)+espacioFormAnt+espacio;
       px = 400;
       switch(n){
-        case 0:
-          
+        case 0: //para a
+          inicioF = 0;
+          finalF = C.n/2;
+          inicioC = 0;
+          finalC = C.n/2;
         break;
-        case 1:
-          
+        case 1: //para b
+          inicioF = 0;
+          finalF = C.n/2;
+          inicioC = C.n/2;
+          finalC = C.n; 
         break;
-        case 2:
-          
+        case 2: //para c
+          inicioF = C.n/2;
+          finalF = C.n;
+          inicioC = 0;
+          finalC = C.n/2; 
         break;
-        case 3:
-          
-        break;
-        case 4:
-          
-        break;
-        case 5:
-          
-        break;
-        case 6:
-          
+        case 3: //para d
+          inicioF = C.n/2;
+          finalF = C.n;
+          inicioC = C.n/2;
+          finalC = C.n;
         break;
         default:
         break;
       }
-      for(var i=0;i<C.n/2;i++){
-        for(var j=0;j<C.n/2;j++){
+      
+      for(var i=inicioF;i<finalF;i++){
+        for(var j=inicioC;j<finalC;j++){
           r.rect(px,py,tamMin,tamMin);
-          /*if(matriz.get(i,j) >= -9 && matriz.get(i,j) < 10){
+          if(C.get(i,j) >= -9 && C.get(i,j) < 10){
             ctx.font = '20px serif';
           }
-          else if ((matriz.get(i,j) >= -99 && matriz.get(i,j) < -9) || (matriz.get(i,j) >= 10 && matriz.get(i,j) < 100) ){
+          else if ((C.get(i,j) >= -99 && C.get(i,j) < -9) || (C.get(i,j) >= 10 && C.get(i,j) < 100) ){
             ctx.font = '14px serif';
           }
           else{
             ctx.font = '12px serif';
           }
-          ctx.fillText(matriz.get(i,j),px+5,py+18);*/
+          ctx.fillText(C.get(i,j),px+5,py+18);
           ctx.stroke(r);
           px = px+tamMin;
         }
