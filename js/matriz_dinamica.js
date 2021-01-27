@@ -562,12 +562,12 @@ var strassen = function(a, b,ln) {
         default: 
         break;
       }
-      ctx.strokeStyle = "white";
+      ctx.strokeStyle = "red";
       var rn = new Path2D();
       rn.rect(px,py,newTamM ,newTamM);
       ctx.stroke(rn);
       await sleep(400);
-      ctx.strokeStyle = "black";
+      ctx.strokeStyle = "white";
       ctx.stroke(rn);
     }
     //funcion para copiar las 8 submatrices

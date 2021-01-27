@@ -1,7 +1,6 @@
 /*================================GENERAL===============================*/
 @import url("./Quicksand-Bold/style.css");
 @import url("./Quicksand-Light/style.css");
-;
 
 :root {
     --color-section: rgb(2, 69, 122);
@@ -24,25 +23,25 @@
     width: 600px;
     height: 40px;
     margin: auto;
-    font-family: 'Quicksand Light', Arial; 
+
 }
 .menu a:hover {
     background-color: rgb(1, 186, 190);
     color: rgb(2, 69, 122);
-    font-family: 'Quicksand Light', Arial; 
+     
   }
 
 .menu ul li{
     list-style: none;
     float: left;
-    font-family: 'Quicksand Light', Arial; 
+     
 }
 .menu ul li a {
     color: rgb(1, 186, 190);
     text-decoration: none;
     padding: 10px 15px;
     border: 1px solid rgb(1, 138, 190);
-    font-family: 'Quicksand Light', Arial; 
+     
 }
 h1 {
     color:rgb(151, 202, 216);
@@ -58,7 +57,7 @@ h2 {
 p {
     color:rgb(151, 202, 216);
     text-align: center;
-    font-family: 'Quicksand Light', Arial; 
+     
 }
 .centrarT {
     text-align: center;
@@ -69,7 +68,7 @@ p {
     padding-left: 20px;
     background-color: rgb(2, 69, 122);
     margin: auto;
-    font-family: 'Quicksand Light', Arial; 
+     
 }
 img.strImg{
     max-width: 200px; 
@@ -100,16 +99,14 @@ img.algoImg{
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    font-family: 'Quicksand Light', Arial; 
+
 }
 
 .main-animacion {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    margin-bottom: 700px;
-    font-family: 'Quicksand Light', Arial; 
-
+    margin-bottom: 10px;
 }
 @media screen and (min-width:1024px){
     .main-animacion{
@@ -122,6 +119,7 @@ img.algoImg{
     }
     .container-animacion {
         flex-basis: 75%;
+        background-color: rgb(151, 202, 216);
     }
 }
 .container-matriz {
@@ -136,72 +134,20 @@ img.algoImg{
     flex-grow: 1;
     flex-direction: column;
     display: flex;
-    background-color: rgb(214,232,238);
+    
 }
 .container-TituloAni {
     justify-content: center;
     align-items: center;
+    background-color: var(--color-section);
 }
 .container-movimiento {
     display: flex;
     flex-direction: row;
-    
+    background-color: rgb(214,232,238);
 }
 /*==Movimiento cajas==*/
-#cajaSMa {
-    
-}
-#cajaSMa.animarCaja {
-    width: 250px;
-    height: 100px;
-    background-color: paleturquoise;
-    animation-name: animacionCajaSMa;
-    animation-duration: 5s;
-    position: relative;
-}
-#cajaSMb {
-    
-}
-#cajaSMb.animarCaja {
-    width: 100px;
-    height: 100px;
-    background-color: palevioletred;
-    animation-name: animacionCajaSMb;
-    animation-duration: 5s;
-    position: relative;
-}
-#cajaSMc {
 
-}
-#cajaSMc.animarCaja {
-    width: 100px;
-    height: 100px;
-    background-color: blueviolet;
-    animation-name: animacionCajaSMc;
-    animation-duration: 5s;
-    position: relative;
-}
-@keyframes animacionCajaSMa {
-    0% {background-color: greenyellow;left: 0px;top: 0px;}
-    25% {background-color: greenyellow;}
-    50% {background-color: greenyellow;}
-    75% {background-color: greenyellow;}
-    100% {background-color: greenyellow;left: 0px;top: 1000px;}
-}
-@keyframes animacionCajaSMb {
-    0% {background-color: brown;left: 0px;top: -100px;}
-    25% {background-color: brown;}
-    50% {background-color: brown;}
-    75% {background-color: brown;}
-    100% {background-color: brown;left: 0px;top: 0px;}
-}
-@keyframes animacionCajaSMc {
-    0% {background-color: greenyellow;left: 0px;top: -200px;}
-    25% {background-color: greenyellow;}
-    50% {background-color: greenyellow;left: 0px;top: 0px;}
-    75% {background-color: greenyellow;}
-    100% {background-color: greenyellow;left: 0px;top: 0px;}
-}
 /*===============================MATRICES===============================*/
 .matrix {
     position: relative;
@@ -240,4 +186,8 @@ img.algoImg{
 .cFuente img{
     padding-left: 30px;
     margin-left: auto;
+}
+body {
+    font-family: ;
+
 }
