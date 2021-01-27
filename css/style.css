@@ -1,4 +1,7 @@
 /*================================GENERAL===============================*/
+/*@import url("./Quicksand-Bold/style.css");*/
+@import url("Quicksand-Light/style.css");
+
 :root {
     --color-section: rgb(2, 69, 122);
     
@@ -20,37 +23,41 @@
     width: 600px;
     height: 40px;
     margin: auto;
-    font-family: Quicksand; 
+    font-family: 'Quicksand Light', Arial; 
 }
 .menu a:hover {
     background-color: rgb(1, 186, 190);
     color: rgb(2, 69, 122);
+    font-family: 'Quicksand Light', Arial; 
   }
 
 .menu ul li{
     list-style: none;
     float: left;
+    font-family: 'Quicksand Light', Arial; 
 }
 .menu ul li a {
     color: rgb(1, 186, 190);
     text-decoration: none;
     padding: 10px 15px;
     border: 1px solid rgb(1, 138, 190);
+    font-family: 'Quicksand Light', Arial; 
 }
 h1 {
     color:rgb(151, 202, 216);
     text-align: center;
     padding: 5px;
-    font-family: Quicksand; 
+    font-family: 'Quicksand Light', Arial; 
 }
 h2 {
     color:rgb(151, 202, 216);
     text-align: center;
+    font-family: 'Quicksand Light', Arial;
 }
 p {
     color:rgb(151, 202, 216);
     text-align: center;
-    font-family: Quicksand; 
+    font-family: 'Quicksand Light', Arial; 
 }
 .centrarT {
     text-align: center;
@@ -61,7 +68,7 @@ p {
     padding-left: 20px;
     background-color: rgb(2, 69, 122);
     margin: auto;
-    font-family: Quicksand; 
+    font-family: 'Quicksand Light', Arial; 
 }
 img.strImg{
     max-width: 200px; 
@@ -92,15 +99,15 @@ img.algoImg{
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    font-family: Quicksand;
+    font-family: 'Quicksand Light',Arial;
 }
 
 .main-animacion {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    margin-bottom: 700px;
-
+    margin-bottom: 50px;
+    font-family: 'Quicksand Light',Arial;
 }
 @media screen and (min-width:1024px){
     .main-animacion{
@@ -116,11 +123,12 @@ img.algoImg{
     }
 }
 .container-matriz {
+    
     background-color: var(--color-section);
     flex-grow: 1;
     display: flex;
     justify-content: center;
-    align-items: center;
+    
 }
 .container-animacion {
     background-color: var(--color-section);
@@ -219,6 +227,10 @@ img.algoImg{
     text-align: center;
 }
 .genMat{
+    padding-top: 20px;
+    padding-left: 10px;
+    margin-top: 10px;
+    margin-bottom: auto;
     border: 1px solid #000;
 }
 
