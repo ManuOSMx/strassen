@@ -425,7 +425,8 @@ var strassen = function(a, b,ln) {
       canvas.width = canvas.width;//limpia el canvas
       if (canvas.getContext) {
         var ctx = canvas.getContext('2d');
-
+        //ctx.strokeStyle = "white";
+        //ctx.
         //Creamos matriz A
         var r = new Path2D();
         var posInitY = 50;
@@ -561,7 +562,7 @@ var strassen = function(a, b,ln) {
         default: 
         break;
       }
-      ctx.strokeStyle = "red";
+      ctx.strokeStyle = "white";
       var rn = new Path2D();
       rn.rect(px,py,newTamM ,newTamM);
       ctx.stroke(rn);
@@ -663,7 +664,7 @@ var strassen = function(a, b,ln) {
 
 
     }
-
+    
 
     function sleep(ms) {
       return new Promise(resolve => setTimeout(resolve, ms));
@@ -830,6 +831,40 @@ var strassen = function(a, b,ln) {
         py=py+tamMin;
       }
     }
+    function crearMatrizC(){
+      var espacio = ((tamMat/2)+10)*4;
+      var espacioFormAnt = ((tamMat/2)+10)*6;
+      if(C.n/2 > 1){
+        espacio = ((tamMat/2)+7)*4;
+        espacioFormAnt = ((tamMat/2)+7)*6;
+      }
+      py = posInitY+tamMat+110+90+(tamMat/2)+espacioFormAnt+espacio+50;
+      px = 70;
+
+      ctx.font = '30px serif';
+      var pmit = py+(tamMat/2);
+      ctx.fillText("C =",10,pmit);
+
+      for(var i=0;i<C.n;i++){
+        for(var j=0;j<C.n;j++){
+          r.rect(px,py,tamMin,tamMin);
+          if(C.get(i,j) >= -9 && C.get(i,j) < 10){
+            ctx.font = '20px serif';
+          }
+          else if ((C.get(i,j) >= -99 && C.get(i,j) < -9) || (C.get(i,j) >= 10 && C.get(i,j) < 100) ){
+            ctx.font = '14px serif';
+          }
+          else{
+            ctx.font = '12px serif';
+          }
+          ctx.fillText(C.get(i,j),px+5,py+18);
+          ctx.stroke(r);
+          px = px+tamMin;
+        }
+        px=70;
+        py=py+tamMin;
+      }
+    }
     //funcion que inicia la animacion
     var btnI = document.getElementById('iniciar');
     async function empezarAnimacion() {
@@ -855,7 +890,8 @@ var strassen = function(a, b,ln) {
         ponerMatRC111AC22(i);
         await sleep(900);
       }
-      
+      await sleep(900);
+      crearMatrizC();
     }
     btnI.addEventListener('click',empezarAnimacion,true);
 

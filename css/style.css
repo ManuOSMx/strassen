@@ -1,6 +1,7 @@
 /*================================GENERAL===============================*/
-/*@import url("./Quicksand-Bold/style.css");*/
-@import url("Quicksand-Light/style.css");
+@import url("./Quicksand-Bold/style.css");
+@import url("./Quicksand-Light/style.css");
+;
 
 :root {
     --color-section: rgb(2, 69, 122);
@@ -47,12 +48,12 @@ h1 {
     color:rgb(151, 202, 216);
     text-align: center;
     padding: 5px;
-    font-family: 'Quicksand Light', Arial; 
+    font-family: 'Quicksand Bold', Arial; 
 }
 h2 {
     color:rgb(151, 202, 216);
     text-align: center;
-    font-family: 'Quicksand Light', Arial;
+    font-family: 'Quicksand Bold', Arial;
 }
 p {
     color:rgb(151, 202, 216);
@@ -99,15 +100,16 @@ img.algoImg{
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    font-family: 'Quicksand Light',Arial;
+    font-family: 'Quicksand Light', Arial; 
 }
 
 .main-animacion {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    margin-bottom: 50px;
-    font-family: 'Quicksand Light',Arial;
+    margin-bottom: 700px;
+    font-family: 'Quicksand Light', Arial; 
+
 }
 @media screen and (min-width:1024px){
     .main-animacion{
@@ -131,11 +133,10 @@ img.algoImg{
     
 }
 .container-animacion {
-    background-color: var(--color-section);
     flex-grow: 1;
     flex-direction: column;
     display: flex;
-    
+    background-color: rgb(214,232,238);
 }
 .container-TituloAni {
     justify-content: center;
@@ -143,7 +144,8 @@ img.algoImg{
 }
 .container-movimiento {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    
 }
 /*==Movimiento cajas==*/
 #cajaSMa {
