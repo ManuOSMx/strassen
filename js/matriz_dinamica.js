@@ -16,6 +16,7 @@ var Scalar = {};
   };
 })();
 
+
 // Matrix stuff
 var Matrix = {};
 (function () {
@@ -213,7 +214,7 @@ var Matrix = {};
   };
 
 var cont = 0;
-var val = []; 
+var valores = [];
 var strassen = function(a, b) {
   var n = a.n;
   
@@ -275,10 +276,10 @@ var strassen = function(a, b) {
   for(var i=0;i<C.n;i++){
     for(var j=0;j<C.n;j++){
       //console.log(C.get(i,j));
-      val.push(C.get(i,j));
+      valores.push(C.get(i,j));
     }
   }
-
+  //console.log("----------------");
   return C;
 };
 
@@ -292,8 +293,7 @@ var strassen = function(a, b) {
     }
     var c = strassen(a,b);
     console.log("contador:"+cont);
-
-
+    console.log(valores.length);
     return c;
   };
 })();
@@ -372,7 +372,6 @@ var strassen = function(a, b) {
   En la siguiente funcion se hara la multiplicacion por strassen
   ------------------------------*/
   function calc(){
-    
     //sacamos los valores
     var filas_M1=parseInt(document.getElementById("fil1").value);
     var colucnas_M1=parseInt(document.getElementById("fil1").value);
@@ -570,7 +569,7 @@ var strassen = function(a, b) {
       ctx.strokeStyle = "black";
       ctx.stroke(rn);
     }
-
+    //funcion para copiar las 8 submatrices
     function copiarSubMat(n){
       py = posInitY+tamMat+70;
       var espacio = 40;
@@ -669,10 +668,16 @@ var strassen = function(a, b) {
     function sleep(ms) {
       return new Promise(resolve => setTimeout(resolve, ms));
     }
-
+    //funcion para poner las formulas
     function ponerForm(n){
-      var espacio = 40*n;
-      py = posInitY+tamMat+130+(tamMat/2)+espacio;
+      var espacio;
+      if(tamMat/2  < 40){
+        espacio = 35;
+      }
+      else{
+        espacio = (tamMat/2)+10;
+      }
+      py = posInitY+tamMat+130+(tamMat/2)+(espacio*n);
       px = 70;
       ctx.font = '25px serif';
       switch(n){
@@ -700,8 +705,150 @@ var strassen = function(a, b) {
         default:
         break;
       }
+      
+
     }
     
+    //funcion para poner las matrices resultado de P1 a P7
+    function ponerMatRP1AP7(n){
+      var espacio = ((tamMat/2)+10)*n;
+      if(C.n/2 > 1){
+        espacio = ((tamMat/2)+7)*n;
+      }
+      py = posInitY+tamMat+110+(tamMat/2)+espacio;
+      px = 400;
+      switch(n){
+        case 0:
+          
+        break;
+        case 1:
+          
+        break;
+        case 2:
+          
+        break;
+        case 3:
+          
+        break;
+        case 4:
+          
+        break;
+        case 5:
+          
+        break;
+        case 6:
+          
+        break;
+        default:
+        break;
+      }
+      for(var i=0;i<C.n/2;i++){
+        for(var j=0;j<C.n/2;j++){
+          r.rect(px,py,tamMin,tamMin);
+          /*if(matriz.get(i,j) >= -9 && matriz.get(i,j) < 10){
+            ctx.font = '20px serif';
+          }
+          else if ((matriz.get(i,j) >= -99 && matriz.get(i,j) < -9) || (matriz.get(i,j) >= 10 && matriz.get(i,j) < 100) ){
+            ctx.font = '14px serif';
+          }
+          else{
+            ctx.font = '12px serif';
+          }
+          ctx.fillText(matriz.get(i,j),px+5,py+18);*/
+          ctx.stroke(r);
+          px = px+tamMin;
+        }
+        px=400;
+        py=py+tamMin;
+      }
+    }
+    //funcion para poner las formulas finales
+    function ponerFormFinales(n){
+      var espacio;
+      var espacioFormAnt;
+      if(tamMat/2  < 40){
+        espacio = 35;
+        espacioFormAnt = 35*6;
+      }
+      else{
+        espacio = (tamMat/2)+10;
+        espacioFormAnt = ((tamMat/2)+10)*6;
+      }
+      py = posInitY+tamMat+130+90+(tamMat/2)+espacioFormAnt+(espacio*n);
+      px = 70;
+      ctx.font = '25px serif';
+      switch(n){
+        case 0:
+          ctx.fillText("C11: P1+P4-P5+P7 =",px,py);
+        break;
+        case 1:
+          ctx.fillText("C12: P3+P5 =",px,py);
+        break;
+        case 2:
+          ctx.fillText("C21: P2+P4 =",px,py);
+        break;
+        case 3:
+          ctx.fillText("C22: P1+P3-P2+P6 =",px,py);
+        break;
+        default:
+        break;
+      }
+    }
+    //funcion para poner las matrices resultado de C11 a C22
+    function ponerMatRC111AC22(n){
+      var espacio = ((tamMat/2)+10)*n;
+      var espacioFormAnt = ((tamMat/2)+10)*6;
+      if(C.n/2 > 1){
+        espacio = ((tamMat/2)+7)*n;
+        espacioFormAnt = ((tamMat/2)+7)*6;
+      }
+      py = posInitY+tamMat+110+90+(tamMat/2)+espacioFormAnt+espacio;
+      px = 400;
+      switch(n){
+        case 0:
+          
+        break;
+        case 1:
+          
+        break;
+        case 2:
+          
+        break;
+        case 3:
+          
+        break;
+        case 4:
+          
+        break;
+        case 5:
+          
+        break;
+        case 6:
+          
+        break;
+        default:
+        break;
+      }
+      for(var i=0;i<C.n/2;i++){
+        for(var j=0;j<C.n/2;j++){
+          r.rect(px,py,tamMin,tamMin);
+          /*if(matriz.get(i,j) >= -9 && matriz.get(i,j) < 10){
+            ctx.font = '20px serif';
+          }
+          else if ((matriz.get(i,j) >= -99 && matriz.get(i,j) < -9) || (matriz.get(i,j) >= 10 && matriz.get(i,j) < 100) ){
+            ctx.font = '14px serif';
+          }
+          else{
+            ctx.font = '12px serif';
+          }
+          ctx.fillText(matriz.get(i,j),px+5,py+18);*/
+          ctx.stroke(r);
+          px = px+tamMin;
+        }
+        px=400;
+        py=py+tamMin;
+      }
+    }
     //funcion que inicia la animacion
     var btnI = document.getElementById('iniciar');
     async function empezarAnimacion() {
@@ -716,6 +863,15 @@ var strassen = function(a, b) {
       await sleep(300);
       for(var i=0;i<7;i++){
         ponerForm(i);
+        await sleep(500);
+        ponerMatRP1AP7(i);
+        await sleep(900);
+      }
+      await sleep(400);
+      for(var i=0;i<4;i++){
+        ponerFormFinales(i);
+        await sleep(500);
+        ponerMatRC111AC22(i);
         await sleep(900);
       }
       
