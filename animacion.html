@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>Strassen</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/style.css"/>
+<link href = "./css/Quicksand-Light/style.css" rel = "stylesheet" type = "text/css" />
+</head>
+ 
+<body id="fondoAnimacion">
+    <header class="centrarT">
+       <h1>Multiplicacion de Matrices de Strassen</h1>
+       <p>Animacion del proceso</p>
+       <nav class="menu">
+            <ul>
+                <li><a class="active" href="./index.html">Home</a></li>
+                <li><a href="./animacion.html">Animacion</a></li>
+                <li><a href="./cfuente.html">Codigo fuente</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class = "main-animacion">
+        <section class="container-matriz">
+            <div class="genMat">
+                <h1>Dimensiones Matriz</h1>
+                <p style="color: white;">Dimension (n)<sup>2</sup>: <input type="number" min="1" id="fil1" value="2" ></p> 
+                <p><button id="creacion" onclick="crear();" >Crear matrices</button><br></p>
+                <h2>Matriz A</h2>
+                <form id="m1" name="matriz1">
+                </form>
+                <h2>Matriz B</h2>
+                <form id="m2" name="matriz2">
+                </form>
+                <div name="bot" id="bot" ></div>
+                <form id="resultado_enlinea" name="resultado_enlinea" ></form>
+                <form id="resultado" name="resultado" ></form>
+            </div>
+        </section>
+        <section class="container-animacion" style="border: oldlace solid 1px;">
+            <div class ="container-TituloAni">
+                <h2 class="centrarT">Animacion</h2>
+                <button id="iniciar">Animar</button>
+            </div>
+            <div class = "container-movimiento" style="border: white solid 1px;">
+                
+            </div>
+            <canvas id="canvas" width="1000" height="1200"></canvas>
+        </section>
+    </main>
+    <footer id="footerFondo">
+        <h3>Miembros:</h3>
+        <p>Paredes Sánchez Giovanni Damián</p>
+        <p>Perez Gonzalez Mayer Abraham</p>
+        <p>Ortiz Salazar Manuel Eduardo</p>
+    </footer>
+    <script src="./js/main.js" ></script>
+    <script src="./js/strassen.js"></script>
+    <script src="./js/matriz_dinamica.js" ></script>
+</body>
+</html>
