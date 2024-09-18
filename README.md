@@ -9,7 +9,7 @@ el boton de "animar".
 
 Fue creado y desarrollado en javaScript, puedes encontrarlo en animacion.html y el algoritmo en ./js/matriz_dinamica.js
 
-OBSERVACION: La animacion tiene como limitante que las matrices no sean mayores a 4x4, en caso de querer una animacion con
+**OBSERVACION**: La animacion tiene como limitante que las matrices no sean mayores a 4x4, en caso de querer una animacion con
 dimensiones mayores, tendrás que ampliar el margin-bottom del div de la animacion.
 
 NOTA IMPORTANTE: El algoritmo de Strassen funciona con cualquier dimension cuadrada (2x2,3x3,4x4, ... , NxN) No hay ningun problema. 
